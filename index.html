@@ -356,6 +356,13 @@
     });
     view.ui.add(editorExpand, "top-right");
 
+    const basemapExpand = new Expand({
+      view: view,
+      content: basemapGallery,
+      expandIcon: "pencil",
+      group: "primary"
+    });
+    view.ui.add(editorExpand, "top-right");
   });
   </script>
   </head>
