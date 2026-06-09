@@ -334,8 +334,6 @@
       url: "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB3/refs/heads/main/myairplane.png",
       width: "18px",
       height: "18px",
-      haloColor: "white",
-      haloSize: 0.5
     };
 
     const myairportRenderer = {
@@ -404,7 +402,8 @@
 
     // legend added per documentation to lower left side of map
     const legend = new Legend({
-      view: view
+      view: view,
+      syle: "card"
     });
 
     view.ui.add(legend, "bottom-left");
