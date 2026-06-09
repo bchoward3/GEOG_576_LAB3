@@ -32,9 +32,10 @@
     "esri/geometry/Polygon",
     "esri/layers/FeatureLayer",
     "esri/widgets/Editor",
-    "esri/widgets/Expand"
+    "esri/widgets/Expand",
+    "esri/symbols/PictureMarkerSymbol"
 
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline, Polygon, FeatureLayer, Editor, Expand) {
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline, Polygon, FeatureLayer, Editor, Expand, PictureMarkerSymbol) {
 
     esriConfig.apiKey = "AAPTazVmijAZJOjPyl5hCMPDqAA..zs1UyCs6v5nYRp3ZLCrSdJOsU9zc1sFBjXYsgR9WZUMyR55XSkc3kkwwSVYP_eE28kwGrEVlKcTsFjjRmQ1zv1AK99gVXuateIyat5P_13Ly8TIpkWfc4hFsjJ3n865y_niBHTqRPUHJGuyUTOiK3uyifmZ5tSMqvittvIizKFNHVErA_SdsGBEIihl3ptOrvvOIW4jlcqoCmIewexn5JDyToQEwHy0PtJJ3PgbOtGKo_UHWa2LkyLOpS3UdYCVW71kW5mk.AT1_l2BfxoE2";
 
@@ -328,6 +329,20 @@
     //Add heliport feature layer to map
   map.add(featurelayer3);
 
+    // Picture marker symbol using GitHub hosted icon
+    const airportSymbol = {
+      type: "picture-marker",
+      // Airplane icon from Noun Project - attribute to MHDK
+      url: "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB3/refs/heads/main/myairplane.png",
+      width: "18px",
+      height: "18px"
+    };
+
+    const airportRenderer = {
+      type: "simple",
+      symbol: airportSymbol
+    };
+
     //Adding the MyAirports0386 feature layer
     const featurelayer4 = new FeatureLayer ({
         url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/MyAirports0386/FeatureServer",
@@ -363,6 +378,8 @@
       group: "primary"
     });
     view.ui.add(basemapExpand, "top-right");
+
+    
   });
   </script>
   </head>
