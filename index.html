@@ -341,7 +341,11 @@
         const pointInfos = {
           layer: featurelayer4
         }
-        
+    // Editor constructor per lesson documentation
+    const editor = new Editor ({
+      view: view,
+      layerInfos: [pointInfos]
+    });        
 
     // Constructing the Expand widget for the editor to conserve screen space
     const editorExpand = new Expand({
