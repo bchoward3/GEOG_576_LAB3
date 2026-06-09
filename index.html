@@ -330,7 +330,7 @@
   map.add(featurelayer3);
 
     // Picture marker symbol using GitHub hosted icon
-    const airportSymbol = {
+    const myairportSymbol = {
       type: "picture-marker",
       // Airplane icon from Noun Project - attribute to MHDK
       url: "https://raw.githubusercontent.com/bchoward3/GEOG_576_LAB3/refs/heads/main/myairplane.png",
@@ -338,9 +338,9 @@
       height: "18px"
     };
 
-    const airportRenderer = {
+    const myairportRenderer = {
       type: "simple",
-      symbol: airportSymbol
+      symbol: myairportSymbol
     };
 
     //Adding the MyAirports0386 feature layer
@@ -348,7 +348,8 @@
         url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/MyAirports0386/FeatureServer",
         // adding pop-up
         outFields: ["AirportCode"],
-    })
+        renderer: myairportRenderer
+    });
         // Add feature layer to map
         map.add(featurelayer4);
 
@@ -374,7 +375,7 @@
     const basemapExpand = new Expand({
       view: view,
       content: basemapGallery,
-      expandIcon: "pencil",
+      expandIcon: "basemap",
       group: "primary"
     });
     view.ui.add(basemapExpand, "top-right");
