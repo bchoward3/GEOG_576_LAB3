@@ -30,9 +30,10 @@
     "esri/symbols/SimpleMarkerSymbol",
     "esri/geometry/Polyline",
     "esri/geometry/Polygon",
-    "esri/layers/FeatureLayer"
+    "esri/layers/FeatureLayer",
+    "esri/widgets/Editor"
 
-  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline, Polygon, FeatureLayer) {
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic, Search, GraphicsLayer, Point, SimpleMarkerSymbol, Polyline, Polygon, FeatureLayer, Editor) {
 
     esriConfig.apiKey = "AAPTazVmijAZJOjPyl5hCMPDqAA..zs1UyCs6v5nYRp3ZLCrSdJOsU9zc1sFBjXYsgR9WZUMyR55XSkc3kkwwSVYP_eE28kwGrEVlKcTsFjjRmQ1zv1AK99gVXuateIyat5P_13Ly8TIpkWfc4hFsjJ3n865y_niBHTqRPUHJGuyUTOiK3uyifmZ5tSMqvittvIizKFNHVErA_SdsGBEIihl3ptOrvvOIW4jlcqoCmIewexn5JDyToQEwHy0PtJJ3PgbOtGKo_UHWa2LkyLOpS3UdYCVW71kW5mk.AT1_l2BfxoE2";
 
@@ -325,6 +326,27 @@
     
     //Add heliport feature layer to map
   map.add(featurelayer3);
+
+    //Adding the MyAirports0386 feature layer
+    const featurelayer4 = new FeatureLayer ({
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/MyAirports0386/FeatureServer",
+        // adding pop-up
+        outFields: ["AirportCode"],
+    })
+        // Add feature layer to map
+        map.add.(featurelayer4);
+
+        // Set point layer's LayerInfo
+        const pointInfos = {
+          layer: featurelayer4
+        }
+        // Editor constructor per lesson documentation
+        const editor = new Editor ({
+          view: view,
+          layerInfos: [pointInfos]
+        });
+        // Add widget to view
+        view.ui.add(editor, "top-right");
 
   });
   </script>
